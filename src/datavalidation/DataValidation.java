@@ -44,6 +44,67 @@ public class DataValidation {
                         repeat = true;
                     }
         }
+        
+        repeat = true;
+        System.out.print("Enter a string that contains the letter a -->");
+        while(repeat == true)
+        {
+            try
+            {
+                String test;
+                boolean exit = false;
+                userInput = input.next();
+                int runs = userInput.length();
+                int character = 0;
+                while(exit == false)
+                {
+                    test = Character.toString(userInput.charAt(character));
+                    if(test.equals("a"))
+                    {
+                        System.out.println("The string you entered contains the letter a");
+                        exit = true;
+                        repeat = false;
+                    }
+                    else
+                    {
+                        if(character == runs-1)
+                        {
+                            System.out.print("The string you entered does not contain the letter a.  Try again -->");
+                            exit = true;
+                            repeat = true;
+                        }
+                        else
+                        {
+                        character = character+1;
+                        exit = false;
+                        }
+                    }
+                }
+            }
+            catch(Exception e)
+                    {
+                        System.out.print("This is a general error.  Try again -->");
+                        repeat = true;
+                    }
+        }
+        
+        repeat = true;
+        System.out.print("Enter an integer between 5 and 500 characters -->");
+        while(repeat == true)
+        {
+            try
+            {
+                userInput = input.next();
+                if(5<userInput.length() && userInput.length()<500)
+                {
+                    
+                }
+            }
+            catch(Exception e)
+                    {
+                        
+                    }
+        }
     }
     
 }
