@@ -21,6 +21,7 @@ public class DataValidation {
         Scanner input = new Scanner(System.in);
         boolean repeat = true;
         String userInput;
+        int userInputInt;
         System.out.print("Enter a string that is greater than 6 characters long -->");
         
         while(repeat == true)
@@ -31,10 +32,11 @@ public class DataValidation {
                 if(userInput.length()>6)
                 {
                     repeat = false;
+                    System.out.println("The string you entered is greater than 6 characters.");
                 }
                 else
                 {
-                    System.out.print("The string you entered is not greater than 6.  Try again -->");
+                    System.out.print("The string you entered is not greater than 6 characters.  Try again -->");
                     repeat = true;
                 }
             }
@@ -94,16 +96,81 @@ public class DataValidation {
         {
             try
             {
-                userInput = input.next();
-                if(5<userInput.length() && userInput.length()<500)
+                userInputInt = input.nextInt();
+                if(5<=userInputInt && userInputInt<=500)
                 {
-                    
+                    repeat = false;
+                }
+                else
+                {
+                    System.out.print("The integer you entered is not between 5 and 500.  Try again -->");
+                    repeat = true;
                 }
             }
             catch(Exception e)
                     {
-                        
+                        System.out.print("This is a general error.  Try again -->");
+                        repeat = true;
                     }
+        }
+        repeat = true;
+        System.out.print("Enter a string that is between 5 and 15 characters long and does not contain the letter z -->");
+        while(repeat == true)
+        {
+            userInput = input.next();
+            
+            try
+            {
+                if(5<=userInput.length() && 15>=userInput.length())
+                {
+                
+                try
+                {
+                String test;
+                boolean exit = false;
+                int runs = userInput.length();
+                int character = 0;
+                while(exit == false)
+                {
+                    test = Character.toString(userInput.charAt(character));
+                    if(test.equals("z"))
+                    {
+                        System.out.print("The string you entered contains the letter z.  Try again -->");
+                        exit = true;
+                        repeat = true;
+                    }
+                    else
+                    {
+                        if(character == runs-1)
+                        {
+                            exit = true;
+                            repeat = false;
+                        }
+                        else
+                        {
+                        character = character+1;
+                        exit = false;
+                        }
+                    }
+                }
+                }
+                catch(Exception e)
+                {
+                    System.out.print("This is a general error.  Try again -->");
+                    repeat = true;
+                }
+                }
+                else
+                {
+                    System.out.print("The string you enterd is not within 5 to 15 characters.  Try again -->");
+                }
+            }
+            catch(Exception e)
+                    {
+                        System.out.print("This is a general error.  Try again -->");
+                        repeat = true;
+                    }
+            
         }
     }
     
