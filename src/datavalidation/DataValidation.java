@@ -26,9 +26,9 @@ public class DataValidation {
         
         while(repeat == true)
         {
+            userInput = input.next();
             try
             {
-                userInput = input.next();
                 if(userInput.length()>6)
                 {
                     repeat = false;
@@ -171,6 +171,63 @@ public class DataValidation {
                         repeat = true;
                     }
             
+        }
+        repeat = true;
+        System.out.print("Enter a negative integer -->");
+        while(repeat==true)
+        {
+            userInputInt = input.nextInt();
+            try
+            {
+                if(userInputInt<0)
+                {
+                    System.out.println("The integer you entered is negative.");
+                    repeat = false;
+                }
+                else
+                {
+                    System.out.print("The integer you entered is not negative.  Try again -->");
+                    repeat = true;
+                }
+            }
+            catch(Exception e)
+            {
+                System.out.print("This is a general error.  Try again -->");
+                repeat = true;
+            }
+        }
+        
+        repeat = true;
+        System.out.print("Enter a positive, odd integer -->");
+        while(repeat == true)
+        {
+            userInputInt = input.nextInt();
+            try
+            {
+                if(userInputInt>0)
+                {
+                    if(userInputInt%2 == 0)
+                    {
+                        System.out.print("The integer you entered is not odd.  Try again -->");
+                        repeat = true;
+                    }
+                    else
+                    {
+                        System.out.println("The integer you entered is positive and odd.");
+                        repeat = false;
+                    }
+                }
+                else
+                {
+                    System.out.print("The integer you entered is not positive.  Try again -->");
+                    repeat = true;
+                }
+            }
+            catch(Exception e)
+            {
+                System.out.print("This is a general error.  Try again -->");
+                repeat = true;
+            }
         }
     }
     
