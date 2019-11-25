@@ -92,7 +92,7 @@ public class DataValidation {
         
         repeat = true;
         System.out.print("Enter an integer between 5 and 500 characters -->");
-        while(repeat == true)
+        do
         {
             try
             {
@@ -107,12 +107,11 @@ public class DataValidation {
                     repeat = true;
                 }
             }
-            catch(Exception e)
+            catch(java.util.InputMismatchException e)
                     {
                         System.out.print("This is a general error.  Try again -->");
-                        repeat = true;
                     }
-        }
+        }while(repeat == true);
         repeat = true;
         System.out.print("Enter a string that is between 5 and 15 characters long and does not contain the letter z -->");
         while(repeat == true)
